@@ -1,7 +1,7 @@
 <?php
 /*
     hoti™ - Venezuelan Artistic Material
-    Copyright (C) 2013 Marcos Colina
+    Copyright (C) 2013-2014 Marcos Colina
     GNU General Public License
 	
 	Contributors
