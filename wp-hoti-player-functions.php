@@ -674,7 +674,7 @@ $("#download").show();
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -724,7 +724,7 @@ if($detect->isIOS()){
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -838,7 +838,7 @@ MY_MARKER;
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
 			}
 			$("#toggle").toggleClass("pause");
 		});
