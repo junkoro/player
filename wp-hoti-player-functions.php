@@ -13,7 +13,7 @@
 /***                     SOUNDCLOUD UTILITIES                      ***/
 /***                                                               ***/
 /*********************************************************************/
-
+    
 require_once 'includes/Mobile_Detect.php';
 
 
@@ -374,14 +374,16 @@ function get_hoti_user_tracks(){
 	
 	<script type="text/javascript">
 	<!--
-	jQuery(function($){
-		
+    jQuery.noConflict();
+	(function($){
+	$(function() {	
 		var preloaded = $(".media-item.preloaded");
 		if ( preloaded.length > 0 ) {
 			preloaded.each(function(){prepareMediaItem({id:this.id.replace(/[^0-9]/g, '')},'');});
 			//updateMediaForm();
 		}
-	});
+});
+})(jQuery);
 	-->
 	
 	//Set default Hotï Player Settings
@@ -643,9 +645,13 @@ function hoti_player($id, $user, $autoPlay, $comments, $width, $classes, $player
 	else{
 		$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 /* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
+
 if($format == 'tracks') {
 	$player .= <<<MY_MARKER
 	<script>
+    jQuery.noConflict();
+	(function($){
+	$(function() {
 	var block = false;
 	window.addEventListener("load", function load(event){
 		window.removeEventListener("load", load, false); 
@@ -679,6 +685,8 @@ $("#download").show();
 			$("#toggle").toggleClass("pause");
 		});
 	},false);
+});
+})(jQuery);
 	</script>
         <ul>
             <li id="toggle" class="play"></li>
@@ -696,6 +704,9 @@ MY_MARKER;
 if($detect->isIOS()){
 	$player .= <<<MY_MARKER
 	<script>
+    jQuery.noConflict();
+	(function($){
+	$(function() {
 	var playlists = {};
 	var current = 0;
 	var artwork_url= "";
@@ -788,7 +799,8 @@ function padDigits(number) {
 		else
 			playSong(current - 1);
 	}
-	
+});
+})(jQuery);
 	</script>
         <ul>
             <li id="toggle" class="play"></li>
@@ -806,6 +818,9 @@ MY_MARKER;
 }else{
 	$player .= <<<MY_MARKER
 	<script>
+    jQuery.noConflict();
+	(function($){
+	$(function() {
 	var playlists = {};
 	var current = 0;
 	var block = false;
@@ -903,7 +918,8 @@ function padDigits(number) {
 		else
 			playSong(current - 1);
 	}
-	
+});
+})(jQuery);
 	</script>
         <ul>
             <li id="toggle" class="play"></li>
@@ -1263,7 +1279,7 @@ function prefix_add_my_stylesheet() {
 
 function my_soundcloud_enqueue() {
    wp_deregister_script('soundcloud');
-   wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk.js", false, null);
+   wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk-2.0.0.js", false, null);
    wp_enqueue_script('soundcloud');
 }
 
