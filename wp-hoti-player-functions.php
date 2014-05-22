@@ -686,6 +686,7 @@ $("#download").show();
 				block = true;
 			}else{
 				window.stream.pause();
+                block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -741,6 +742,7 @@ if($detect->isIOS()){
 				block = true;
 			}else{
 				window.stream.pause();
+                block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -859,6 +861,7 @@ MY_MARKER;
 				block = true;
 			}else{
 				window.stream.pause();
+                block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
