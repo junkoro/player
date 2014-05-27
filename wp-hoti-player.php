@@ -83,9 +83,7 @@ function hoti_add_defaults() {
     //First Time install or upgrade from version previous to 1.0.7
     if(empty($tmp)) {
 	$hotiDefaultUsers = array(
-					    'anna-chocola' => array('anna-chocola', 'http://i1.sndcdn.com/avatars-000009470567-spqine-large.jpg?4387aef'),
-					    't-m' => array('t-m', 'http://i1.sndcdn.com/avatars-000002680779-fkvvpj-large.jpg?4387aef'),
-					    'my-disco-nap' => array('my-disco-nap', 'http://i1.sndcdn.com/avatars-000012680897-foqv41-large.jpg?b9f92e9')
+					    'hotitv' => array('hotitv', 'http://i1.sndcdn.com/avatars-000076814116-uxpdjr-large.jpg?30a2558')
 					    );
 	$hotiDefaultUser = $hotiDefaultUsers[array_rand($hotiDefaultUsers, 1)][0];
 	if(get_option('hoti_user')){

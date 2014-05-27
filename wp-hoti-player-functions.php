@@ -742,7 +742,6 @@ if($detect->isIOS()){
 				block = true;
 			}else{
 				window.stream.pause();
-                block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -1287,7 +1286,7 @@ function prefix_add_my_stylesheet() {
 
 function my_soundcloud_enqueue() {
    wp_deregister_script('soundcloud');
-   wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk-2.0.0.js", false, null);
+   wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk.js", false, null);
    wp_enqueue_script('soundcloud');
 }
 
